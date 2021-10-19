@@ -1,0 +1,34 @@
+To disable buzzer on your nfc bt reader you should download sample app and:
+	* connect to the reader
+	* authenticate and start polling
+	* write on escape command  -> E0 00 00 21 01 87   (watch pdf reference)
+	* click on send escape command 
+	* verify under input field escape command if response is -> E1 00 00 00 01 87
+	* DONE! Buzzer off information is saved in nonf-volatile memory so you should send this message only one 
+
+
+To disable sleep mode after 60 seconds you should download sample app and:
+	* connect to the reader
+	* authenticate and start polling
+	* write on escape command  -> E0 00 00 48 04   (watch pdf reference)
+	* click on send escape command 
+	* verify under input field escape command if response is -> E1 00 00 00 01 04
+	* DONE! Buzzer off information is saved in nonf-volatile memory so you should send this message only one 
+
+	6.8.16. Sleep Mode Option
+	By default, the reader will enter the sleep mode if there is no operation for 60 seconds.
+	This command sets the time interval before entering sleep mode.
+	
+	Set Sleep Time Interval Format (5 bytes)
+	Command CLA INS P1 P2 Lc ==> E0h 00h 00h 48h Time
+
+	Set Sleep Time Interval Response Format (6 bytes) 
+	Response ==> CLA INS P1 P2 Le Data Out ==> E1h 00h 00h 00h 01h Time
+	
+	Where:
+	Time 1 byte
+	00h = 60 seconds
+	01h = 90 seconds
+	02h = 120 seconds
+	03h = 180 seconds
+	04h = No Sleep

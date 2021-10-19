@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        id="cordova-bizcode-nfcble"
+        version="0.0.1">
+    <name>NFC ACS BLE Cordova Plugin</name>
+    <description>A simple cordova plugin to read Mifare RFID tags with an external NFC Bluethoot reader from Android.</description>
+    <license>Apache 2.0</license>
+    <keywords>cordova,plugin,nfc,ACR1255U-J1</keywords>
+    <repo>https://github.com/Legenyes/cordova-nfc-acr122-plugin</repo>
+    <issue>https://github.com/Legenyes/cordova-nfc-acr122-plugin/issues</issue>
+ 
+    <engines>
+        <engine name="cordova-android" version=">=3.6.0" /><!-- Requires CordovaPlugin.preferences -->
+    </engines>
+
+ 
+    <js-module src="www/plugin_bizcode.js" name="NFC BLE">
+        <clobbers target="cordova.plugins.nfcBLE" />   <!--cordova.plugins.nfc-acr122-->
+    </js-module>
+    
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="BleBizPlugin" >   <!-- NOME DELLA CLASSE JAVA CHE ANDREMO A CHIAMARE --> 
+                <param name="android-package" value="BleBizPlugin"/> <!-- il value è il nome del file java compreso di percorso a partire da root/src/android, quindi nel mio caso nessun percorso, es. cartella1.cartella2.blebizplugin -->
+            </feature>
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+            <uses-permission android:name="android.permission.BLUETOOTH"/>
+            <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+            <!-- ATTENZIONE, ricordarsi di attivare la localizzazione all interno delle impost. dell'app--> 
+            <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+            <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+        </config-file>
+
+        <source-file src="src/android/BleBizPlugin.java" target-dir="cordova/bizcode/nfcble" />
+        <framework src="src/android/build.gradle" custom="true" type="gradleReference" />
+        <!-- <resource-file src="src/android/libs/acsbt-1.0.1.aar" target-dir="libs/acsbt-1.0.1.aar" /> --> 
+        <lib-file src="src/android/libs/acsbt-1.0.1.aar" target-dir="libs/acsbt-1.0.1.aar" /> <!-- target-dir="cordova/bizcode/nfcble" /> --> 
+    </platform>
+</plugin>
