@@ -11,7 +11,6 @@ adb logcat bizcode:D SystemWebViewClient:D *:S
 
 To get this plugin working correctly, after you install your app, you have to give Localization Access and keep Localization On due to BLE requirement.
 
-Currently i support only <a src="https://www.acs.com.hk/en/products/403/acr1255u-j1-acs-secure-bluetooth%C2%AE-nfc-reader/">acr1255u-j1</a>.
+Currently i support only [acr1255u-j1](https://www.acs.com.hk/en/products/403/acr1255u-j1-acs-secure-bluetooth%C2%AE-nfc-reader/).
 
-Resources used:
-https://www.acs.com.hk/en/products/403/acr1255u-j1-acs-secure-bluetooth%C2%AE-nfc-reader/
+Resources used [here](https://www.acs.com.hk/en/products/403/acr1255u-j1-acs-secure-bluetooth%C2%AE-nfc-reader/)
