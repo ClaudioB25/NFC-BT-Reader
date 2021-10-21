@@ -1,4 +1,4 @@
-# NFC-BT-Reader
+# NFC Bluethoot Reader
 A  simple cordova plugin to read Mifare RFID tags with an external NFC Bluethoot reader from Android.
 
 I adjusted existing JAVA library to force android device to mantain bluethoot connection.
