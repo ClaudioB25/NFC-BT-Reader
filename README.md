@@ -4,7 +4,7 @@ A  simple cordova plugin to read Mifare RFID tags with an external NFC Bluethoot
 I adjusted existing JAVA library to force android device to mantain bluethoot connection.
 To avoid bluethoot generic connection lost errors, android device will try to connect each 2 minutes.
 
-// TODO install e uso
+// TODO install & usage
 
 To debug bluethoot nfc reader run:
 adb logcat bizcode:D SystemWebViewClient:D *:S 
